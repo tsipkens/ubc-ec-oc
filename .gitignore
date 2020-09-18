@@ -4,6 +4,9 @@ imgs\
 data/
 data\
 
+# Ignore temporary Matlab files
+*.asv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
