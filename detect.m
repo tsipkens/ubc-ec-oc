@@ -14,20 +14,20 @@ for ii=1:length(files)
         files(ii).name]);
     
     % Crop template from the background
-    img_new = find_box(img);
+    img_new = findBox(img);
     
     % Find squares on the paper
-    [bb2,id,rgb_sq] = find_squares(img_new);
+    [bb2,id,rgb_sq] = findSquares(img_new);
     
     % Find center circle and filter
     [centers, radii, radii2, rgb] = ...
-        find_circles(img_new);
+        findCircles(img_new);
     
     % Calbiration results
     rho(ii,:) = calibrate(rgb_sq, id, rgb);
     
     % Show image with annotations
-    plot_annotations(img_new, rgb_sq, id, bb2, rho, ...
+    plotAnnotations(img_new, rgb_sq, id, bb2, rho, ...
         centers, radii, radii2);
     drawnow;
 end
@@ -66,10 +66,10 @@ end
 
 
 
-% FIND_CIRCLES  Find the squares in the template
+% FINDCIRCLES  Find the squares in the template
 % Author: Timothy Sipkens, October 1, 2019
 %=========================================================================%
-function [centers,radii,radii2,rgb_circle] = find_circles(img)
+function [centers,radii,radii2,rgb_circle] = findCircles(img)
 
 img_size = length(img(:,1,1));
 max_circle = round(img_size/4);
@@ -103,10 +103,10 @@ end
 
 
 
-% FIND_BOX  Find the outlier of the template
+% FINDBOX  Find the outlier of the template
 % Author: Timothy Sipkens, September 30, 2019
 %=========================================================================%
-function [img_new] = find_box(img)
+function [img_new] = findBox(img)
 
 img_gr = rgb2gray(img); % work on gray image
 
@@ -135,10 +135,10 @@ end
 
 
 
-% FIND_SQUARES  Find the squares in the template
+% FINDSQUARES  Find the squares in the template
 % Author: Timothy Sipkens, October 1, 2019
 %=========================================================================%
-function [bb2,id,rgb_sq] = find_squares(img)
+function [bb2,id,rgb_sq] = findSquares(img)
 
 img_gr = rgb2gray(img);
 expected_size = numel(img_gr);
