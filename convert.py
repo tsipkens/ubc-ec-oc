@@ -68,9 +68,8 @@ def rgb2lch(rgb):
     b = lab[:,[2]];
     
     h = np.arctan2(a, b) * 180 / np.pi;
-    if h<0:
-        h = h+360;
-        
+    h[h<0] = h[h<0] + 360;
+    
     c = np.sqrt(a**2 + b**2);
     lch = np.concatenate((l, c, h), axis=1);
     
