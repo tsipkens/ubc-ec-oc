@@ -3,6 +3,8 @@ imgs/
 imgs\
 data/
 data\
+archive/
+archive\
 
 # Ignore temporary Matlab files
 *.asv
