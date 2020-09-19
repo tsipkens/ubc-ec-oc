@@ -1,3 +1,14 @@
+# Ignore folder likely to have a large size
+imgs/
+imgs\
+data/
+data\
+archive/
+archive\
+
+# Ignore temporary Matlab files
+*.asv
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
