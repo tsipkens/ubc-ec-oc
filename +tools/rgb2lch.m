@@ -10,9 +10,9 @@ l = lab(:,1);
 a = lab(:,2);
 b = lab(:,3);
 
-h = atan2(b,a).*180./pi;
-if h<0; h = h+360; end
-c = sqrt(a.^2+b.^2);
+h = atan2(b,a);
+if h<0; h = h + (2 * pi); end
+c = sqrt(a.^2 + b.^2);
 lch = [l,c,h];
 
 end
